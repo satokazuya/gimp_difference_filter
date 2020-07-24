@@ -15,13 +15,13 @@ win10 = "win10.bmp"
 win8 = "win8.bmp"
 
 def plugin_main(image, layer):
-	# レイヤーを全削除
+	# 背景以外のレイヤーを全削除
 	for image in gimp.image_list():
 		for layer in image.layers:
 			if layer.name != "背景":
 				image.remove_layer( layer )
 	
-	# win10とwin8でheightが大きいほうの画像でイメージをリサイズ
+	# win10とwin8でwidthとheightが大きいほうの画像でイメージをリサイズ
 	filename = path + win8
 	image2 = pdb.gimp_file_load(filename, "image0")
 	filename = path + win10
